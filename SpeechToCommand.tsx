@@ -52,11 +52,11 @@ const languageConfig = {
 const SpeechToCommandScreen: React.FC = () => {
   const languageCode = 'en-US';
 
-  const [isListening, setIsListening] = useState(false);
-  const [isRecording, setIsRecording] = useState(false);
-  const [dataOutputs, setDataOutputs] = useState<DataOutput[]>([]);
-  const [currentStatus, setCurrentStatus] = useState<DataOutput | undefined>(undefined);
-  const [currentSpeech, setCurrentSpeech] = useState('');
+  const [isListening, setIsListening] = useState(false); // needed to change current state of voice module
+  const [isRecording, setIsRecording] = useState(false); // needed to change recording button state
+  const [dataOutputs, setDataOutputs] = useState<DataOutput[]>([]); // store commands and parameters
+  const [currentStatus, setCurrentStatus] = useState<DataOutput | undefined>(undefined); // store current status
+  const [currentSpeech, setCurrentSpeech] = useState(''); // store speech
 
   useEffect(() => {
     // Initialize voice recognition
@@ -140,6 +140,7 @@ const SpeechToCommandScreen: React.FC = () => {
       if (!isNaN(parsedNumber) && (parsedNumber > 0 && parsedNumber < 10)) {
         validValues.push(item);
       } else {
+        // convert numbers if they are recorded as string (i.e. 'one', 'two', etc...) 
         const convertedNumber: number | null = convertLetterToNumber(item, languageConfig[languageCode].langCode);
         if (convertedNumber) {
           validValues.push(convertedNumber.toString());

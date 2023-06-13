@@ -26,4 +26,5 @@ function App(): JSX.Element {
     </SafeAreaView>
   );
 }
+
 export default App;
