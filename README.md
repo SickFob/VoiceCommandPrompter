@@ -1,5 +1,26 @@
 # VoiceCommandPrompter
 
+Small application that aims to show precise commands on the screen.
+
+The app can recognise the following commands:
+
+```code```
+
+```count```
+
+```back```
+
+```reset```
+
+
+If you register the command code or count followed by a digit from 1 to 9 the app will show what is being registered on the screen.
+
+For example, if the user registers "Code one five seven" the screen will show Code 157.
+
+The Back command removes the last recorded record while Reset clears the entire list.
+
+The application is already designed to accept multiple languages and multiple words associated with a command, perhaps I will apply the enhancement in the future. 
+
 ## Getting Started
 
 Here is a brief guide to start the project
